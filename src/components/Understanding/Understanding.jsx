@@ -5,6 +5,9 @@ class Understanding extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
+        //show alert if input is blank
+        //dispatch input to redux
+        //if stored in local state, clear local state upon successful dispatch
         this.props.history.push('/support');
     }
 
