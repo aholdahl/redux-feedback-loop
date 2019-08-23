@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Understanding extends Component {
+
+    handleSubmit = () => {
+        this.props.history.push('/support');
+    }
+
     render() {
-        console.log('Hello from Understanding.');
-        
+        console.log('Hello from Understanding.');        
         return (
-            <p>Hello from Understanding.</p>
+            <button onClick={this.handleSubmit}>Next Up: Support</button>
         )
     }
 }

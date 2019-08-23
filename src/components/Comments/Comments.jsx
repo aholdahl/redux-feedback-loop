@@ -2,10 +2,15 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 class Comments extends Component {
+
+    handleSubmit = () => {
+        this.props.history.push('/');
+    }
+
     render (){
         console.log('Hello from Comments.')
         return (
-            <p>Hello from Comments.</p>
+            <button onClick={this.handleSubmit}>Submit Feedback</button>
         )
     }
 }
