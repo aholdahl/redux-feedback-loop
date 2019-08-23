@@ -3,15 +3,21 @@ import { connect } from 'react-redux';
 
 class Support extends Component {
 
-    handleSubmit = () => {
+    handleSubmit = (event) => {
+        event.preventDefault();
         this.props.history.push('/comments');
     }
 
     render() {
         console.log('Hello from Support.');
         return (
-            <button onClick={this.handleSubmit}>Next Up: Comments</button>
-        )
+            <form onSubmit={this.handleSubmit}>
+                <p>How supportive is the Prime staff?</p>
+                <input type="number" /> {/* need to set a max number */}
+                <br />
+                <button>Next Up: Comments</button>
+            </form>        
+            )
     }
 }
 

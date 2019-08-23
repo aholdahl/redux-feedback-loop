@@ -24,7 +24,7 @@ class App extends Component {
           <nav>
             <ul>
               <li>
-                <Link to="/feeling">Feeling</Link>
+                <Link to="/">Feeling</Link>
               </li>
               <li>
                 <Link to="/understanding">Understanding</Link>
@@ -37,7 +37,7 @@ class App extends Component {
               </li>
             </ul>
           </nav>
-          <Route path="/feeling" component={Feeling} />
+          <Route path="/" exact component={Feeling} />
           <Route path="/understanding" component={Understanding} />
           <Route path="/support" component={Support} />
           <Route path="/comments" component={Comments} />

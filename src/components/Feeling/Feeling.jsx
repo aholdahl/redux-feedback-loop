@@ -3,14 +3,20 @@ import { connect } from 'react-redux';
 
 class Feeling extends Component {
 
-    handleSubmit = ()=>{
+    handleSubmit = (event) => {
+        event.preventDefault();
         this.props.history.push('/understanding');
     }
 
     render() {
         console.log('Hello from Feeling.')
         return (
-            <button onClick={this.handleSubmit}>Next Up: Understanding</button>
+            <form onSubmit={this.handleSubmit}>
+                <p>How are you feeling today?</p>
+                <input type="number" /> {/* need to set a max number */}
+                <br />
+                <button>Next Up: Understanding</button>
+            </form>
         )
     }
 }

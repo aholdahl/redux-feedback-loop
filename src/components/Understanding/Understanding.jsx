@@ -3,14 +3,20 @@ import { connect } from 'react-redux';
 
 class Understanding extends Component {
 
-    handleSubmit = () => {
+    handleSubmit = (event) => {
+        event.preventDefault();
         this.props.history.push('/support');
     }
 
     render() {
         console.log('Hello from Understanding.');        
         return (
-            <button onClick={this.handleSubmit}>Next Up: Support</button>
+            <form onSubmit={this.handleSubmit}>
+                <p>How well do you understand today's material?</p>
+                <input type="number" /> {/* need to set a max number */}
+                <br />
+                <button>Next Up: Support</button>
+            </form>
         )
     }
 }
