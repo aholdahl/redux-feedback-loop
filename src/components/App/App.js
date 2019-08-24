@@ -9,8 +9,10 @@ import Support from '../Support/Support.jsx';
 import Comments from '../Comments/Comments.jsx';
 import Review from '../Review/Review.jsx';
 import Confirmation from '../Confirmation/Confirmation.jsx';
+import Admin from '../Admin/Admin.jsx';
 
 class App extends Component {
+
   render() {
     return (
       <Router>
@@ -40,6 +42,9 @@ class App extends Component {
               <li>
                 <Link to="/confirmation">Confirmation</Link>
               </li>
+              <li>
+                <Link to="/admin">Admin</Link>
+              </li>
             </ul>
           </nav> */}
           <Route path="/" exact component={Feeling} />
@@ -48,6 +53,7 @@ class App extends Component {
           <Route path="/comments" component={Comments} />
           <Route path="/review" component={Review} />
           <Route path="/confirmation" component={Confirmation} />
+          <Route path="/admin" component={Admin} />
         </div>
       </Router>
     );

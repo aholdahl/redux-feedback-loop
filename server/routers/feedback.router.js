@@ -13,4 +13,25 @@ router.post('/', (req, res)=>{
     })
 })
 
+router.get('/', (req, res)=>{
+    let queryText = `SELECT * from "feedback" ORDER BY "date" DESC;`
+    pool.query(queryText)
+    .then((result)=>{
+        res.send(result.rows)
+    }).catch((error)=>{
+        res.sendStatus(500)
+    })
+})
+
+router.delete('/:id', (req, res)=>{
+    let itemToDelete = req.params.id;
+    let queryText = `DELETE FROM "feedback" WHERE "id" = $1;`
+    pool.query(queryText, [itemToDelete])
+    .then((result)=>{
+        res.sendStatus(204)
+    }).catch((error)=>{
+        res.sendStatus(500);
+    })
+})
+
 module.exports = router;
