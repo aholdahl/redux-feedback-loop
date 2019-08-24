@@ -1,22 +1,35 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// import axios from 'axios';
 
 class Feeling extends Component {
+    state = { feeling: "" }
+
+    handleChange = (event) => {
+        this.setState({
+            feeling: event.target.value
+        });
+    }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        //show alert if input is blank
-        //dispatch input to redux
-        //if stored in local state, clear local state upon successful dispatch
-        this.props.history.push('/understanding');
+        if (this.state.feeling === "") {
+            alert('Field cannot be blank.');
+        } else {
+            this.props.dispatch({
+                type: 'ADD_FEELING',
+                payload: this.state.feeling
+            })
+            this.setState({ feeling: "" })
+            this.props.history.push('/understanding');
+        }
     }
 
     render() {
-        console.log('Hello from Feeling.')
         return (
             <form onSubmit={this.handleSubmit}>
                 <p>How are you feeling today?</p>
-                <input type="number" /> {/* need to set a max number */}
+                <input type="number" min="1" max="5" onChange={(event) => { this.handleChange(event) }} />
                 <br />
                 <button>Next Up: Understanding</button>
             </form>

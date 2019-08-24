@@ -1,29 +1,42 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Comments extends Component {
+    state = { comments: "" }
+
+    handleChange = (event) => {
+        this.setState({
+            comments: event.target.value
+        });
+    }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        //dispatch input to redux
-        //if stored in local state, clear local state upon successful dispatch
-
-        //send axios post request from reduxStore to database
-        //reset reduxStore to default values
+        this.props.dispatch({
+            type: 'ADD_COMMENTS',
+            payload: this.state.comments
+        })
+        this.setState({ comments: "" })
         this.props.history.push('/');
     }
 
-    render (){
+    render() {
         console.log('Hello from Comments.')
         return (
             <form onSubmit={this.handleSubmit}>
                 <p>Anything else you would like us to know?</p>
-                <input type="text" /> 
+                <input type="text" onChange={(event) => { this.handleChange(event) }} />
                 <br />
                 <button>Submit Feedback</button>
             </form>
-            )
+        )
     }
 }
 
-export default connect()(Comments);
+const mapStateToProps = (reduxStore) => {
+    return{
+        reduxStore
+    }
+}
+
+export default connect(mapStateToProps)(Comments);

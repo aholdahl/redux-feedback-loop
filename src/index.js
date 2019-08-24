@@ -7,9 +7,36 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-const sampleReducer = (state = '', action) => {
+const feelingReducer = (state = '', action) => {
     switch (action.type) {
-        case 'SAMPLE_ROUTE':
+        case 'ADD_FEELING':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
+const understandingReducer = (state = '', action) => {
+    switch (action.type) {
+        case 'ADD_UNDERSTANDING':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
+const supportReducer = (state = '', action) => {
+    switch (action.type) {
+        case 'ADD_SUPPORT':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
+const commentsReducer = (state = '', action) => {
+    switch (action.type) {
+        case 'ADD_COMMENTS':
             return action.payload;
         default:
             return state;
@@ -18,7 +45,10 @@ const sampleReducer = (state = '', action) => {
 
 const store = createStore(
     combineReducers({
-        sampleReducer,
+        feelingReducer,
+        understandingReducer,
+        supportReducer,
+        commentsReducer,
     }),
     applyMiddleware(logger)
 )

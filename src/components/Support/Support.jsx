@@ -1,26 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// import axios from 'axios';
 
 class Support extends Component {
+    state = { support: "" }
+
+    handleChange = (event) => {
+        this.setState({
+            support: event.target.value
+        });
+    }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        //show alert if input is blank
-        //dispatch input to redux
-        //if stored in local state, clear local state upon successful dispatch
-        this.props.history.push('/comments');
+        if (this.state.support === "") {
+            alert('Field cannot be blank.');
+        } else {
+            this.props.dispatch({
+                type: 'ADD_SUPPORT',
+                payload: this.state.support
+            })
+            this.setState({ support: "" })
+            this.props.history.push('/comments');
+        }
     }
 
     render() {
-        console.log('Hello from Support.');
         return (
             <form onSubmit={this.handleSubmit}>
                 <p>How well are you being supported?</p>
-                <input type="number" /> {/* need to set a max number */}
+                <input type="number" min="1" max="5" onChange={(event) => { this.handleChange(event) }} />
                 <br />
                 <button>Next Up: Comments</button>
-            </form>        
-            )
+            </form>
+        )
     }
 }
 
