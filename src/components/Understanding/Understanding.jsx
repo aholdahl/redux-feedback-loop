@@ -27,7 +27,7 @@ class Understanding extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <p>How well do you understand the material?</p>
+                <p>How well are you understanding the content?</p>
                 <input type="number" min="1" max="5" onChange={(event) => { this.handleChange(event) }} />
                 <br />
                 <button>Next Up: Support</button>
@@ -36,4 +36,10 @@ class Understanding extends Component {
     }
 }
 
-export default connect()(Understanding);
+const mapStateToProps = (reduxStore) => {
+    return {
+        reduxStore
+    }
+}
+
+export default connect(mapStateToProps)(Understanding);

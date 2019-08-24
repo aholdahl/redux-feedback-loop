@@ -36,4 +36,10 @@ class Feeling extends Component {
     }
 }
 
-export default connect()(Feeling);
+const mapStateToProps = (reduxStore) => {
+    return {
+        feeling: reduxStore.feelingReducer
+    }
+}
+
+export default connect(mapStateToProps)(Feeling);

@@ -8,6 +8,7 @@ import Understanding from '../Understanding/Understanding.jsx';
 import Support from '../Support/Support.jsx';
 import Comments from '../Comments/Comments.jsx';
 import Review from '../Review/Review.jsx';
+import Confirmation from '../Confirmation/Confirmation.jsx';
 
 class App extends Component {
   render() {
@@ -19,7 +20,7 @@ class App extends Component {
             <h4><i>Don't forget it!</i></h4>
           </header>
           <br />
-          <nav>
+          {/* <nav>
             <ul>
               <li>
                 <Link to="/">Feeling</Link>
@@ -36,13 +37,17 @@ class App extends Component {
               <li>
                 <Link to="/review">Review</Link>
               </li>
+              <li>
+                <Link to="/confirmation">Confirmation</Link>
+              </li>
             </ul>
-          </nav>
+          </nav> */}
           <Route path="/" exact component={Feeling} />
           <Route path="/understanding" component={Understanding} />
           <Route path="/support" component={Support} />
           <Route path="/comments" component={Comments} />
-          <Route path="/review" component={Review}/>
+          <Route path="/review" component={Review} />
+          <Route path="/confirmation" component={Confirmation} />
         </div>
       </Router>
     );
