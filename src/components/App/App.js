@@ -3,16 +3,14 @@ import './bootstrap.min.css';
 import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
 import Feeling from '../Feeling/Feeling.jsx';
 import Understanding from '../Understanding/Understanding.jsx';
 import Support from '../Support/Support.jsx';
 import Comments from '../Comments/Comments.jsx';
+import Review from '../Review/Review.jsx';
 
 class App extends Component {
-  
   render() {
-    console.log('Hello from App. Don\'t forget to import axios.')
     return (
       <Router>
         <div className="App">
@@ -35,22 +33,20 @@ class App extends Component {
               <li>
                 <Link to="/comments">Comments</Link>
               </li>
+              <li>
+                <Link to="/review">Review</Link>
+              </li>
             </ul>
           </nav>
           <Route path="/" exact component={Feeling} />
           <Route path="/understanding" component={Understanding} />
           <Route path="/support" component={Support} />
           <Route path="/comments" component={Comments} />
+          <Route path="/review" component={Review}/>
         </div>
       </Router>
     );
   }
 }
 
-const mapStateToProps = (reduxStore) => {
-  return {
-    reduxStore
-  }
-}
-
-export default connect(mapStateToProps)(App);
+export default connect()(App);

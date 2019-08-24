@@ -17,7 +17,7 @@ class Comments extends Component {
             payload: this.state.comments
         })
         this.setState({ comments: "" })
-        this.props.history.push('/');
+        this.props.history.push('/review');
     }
 
     render() {
@@ -27,7 +27,7 @@ class Comments extends Component {
                 <p>Anything else you would like us to know?</p>
                 <input type="text" onChange={(event) => { this.handleChange(event) }} />
                 <br />
-                <button>Submit Feedback</button>
+                <button>Up Next: Review</button>
             </form>
         )
     }
