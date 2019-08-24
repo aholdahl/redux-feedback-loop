@@ -9,7 +9,7 @@ class Admin extends Component {
         this.getHistory();
     }
 
-    getHistory =()=>{
+    getHistory = () => {
         axios.get('/feedback')
             .then((response) => {
                 this.props.dispatch({
@@ -23,22 +23,26 @@ class Admin extends Component {
 
     render() {
         return (
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Feeling</th>
-                        <th>Understanding</th>
-                        <th>Supported</th>
-                        <th>Comments</th>
-                        <th>Date Submitted</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.props.history.map((item) => { return (<AdminItem key={item.id} item={item} getHistory={this.getHistory}/>) })}
-                </tbody>
-            </table>
+            <div>
+                <h3>Admin View</h3>
+                <br />
+                <table className="table table-dark table-striped table-hover table-sm">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Feeling</th>
+                            <th>Understanding</th>
+                            <th>Supported</th>
+                            <th>Comments</th>
+                            <th>Date Submitted</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.props.history.map((item) => { return (<AdminItem key={item.id} item={item} getHistory={this.getHistory} />) })}
+                    </tbody>
+                </table>
+            </div>
         )
     }
 }

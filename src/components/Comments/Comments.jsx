@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Button } from '@material-ui/core';
+
 
 class Comments extends Component {
     state = { comments: "" }
@@ -21,20 +23,19 @@ class Comments extends Component {
     }
 
     render() {
-        console.log('Hello from Comments.')
         return (
             <form onSubmit={this.handleSubmit}>
-                <p>Anything else you would like us to know?</p>
-                <input type="text" onChange={(event) => { this.handleChange(event) }} />
+                <h3>Anything else you would like us to know?</h3>
+                <input className="myInputs" type="text" onChange={(event) => { this.handleChange(event) }} />
                 <br />
-                <button>Up Next: Review</button>
+                <Button variant="contained" color="primary" type="submit">Up Next: Review</Button>
             </form>
         )
     }
 }
 
 const mapStateToProps = (reduxStore) => {
-    return{
+    return {
         reduxStore
     }
 }

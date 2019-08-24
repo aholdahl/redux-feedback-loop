@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Button } from '@material-ui/core';
+
 
 class Understanding extends Component {
     state = { understanding: "" }
@@ -27,10 +29,10 @@ class Understanding extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <p>How well are you understanding the content?</p>
-                <input type="number" min="1" max="5" onChange={(event) => { this.handleChange(event) }} />
+                <h3>How well are you understanding the content?</h3>
+                <input className="myInputs" type="number" min="1" max="5" onChange={(event) => { this.handleChange(event) }} />
                 <br />
-                <button>Next Up: Support</button>
+                <Button variant="contained" color="primary" type="submit">Next Up: Support</Button>
             </form>
         )
     }

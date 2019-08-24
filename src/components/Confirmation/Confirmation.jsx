@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Button } from '@material-ui/core';
+
 
 class Confirmation extends Component {
 
@@ -9,8 +11,8 @@ class Confirmation extends Component {
     render() {
         return (
             <div>
-                <p>Thank you for your feedback!</p>
-                <button onClick={this.handleClick}>Leave More Feedback</button>
+                <h3>Thank you for your feedback!</h3>
+                <Button variant="contained" color="primary" type="submit" onClick={this.handleClick}>Leave More Feedback</Button>
             </div>
         )
     }

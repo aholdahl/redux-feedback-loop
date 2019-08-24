@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { Button } from '@material-ui/core';
+
 
 class Review extends Component {
 
-    handleClick = (event, url)=>{
+    handleClick = (event, url) => {
         this.props.history.push(url);
     }
 
@@ -24,14 +26,15 @@ class Review extends Component {
     render() {
         return (
             <div>
-                <p>Review your feedback below:</p>
-                <ul>
-                    <li>Feelings: {this.props.reduxStore.feelingReducer} <button onClick={(event)=>{this.handleClick(event, '/')}}>Edit</button></li>
-                    <li>Understanding: {this.props.reduxStore.understandingReducer} <button onClick={(event) => { this.handleClick(event, '/understanding') }}>Edit</button></li>
-                    <li>Support: {this.props.reduxStore.supportReducer}  <button onClick={(event) => { this.handleClick(event, '/support') }}>Edit</button></li>
-                    <li>Comments: {this.props.reduxStore.commentsReducer} <button onClick={(event) => { this.handleClick(event, '/comments') }}>Edit</button></li>
+                <h3>Review your feedback below:</h3>
+                <ul className="myLists">
+                    {/* Need to find a way so the old answers still display when the user returns to an old page */}
+                    <li className="list-group-item">Feelings: {this.props.reduxStore.feelingReducer} <Button variant="contained" color="secondary" type="submit" onClick={(event) => { this.handleClick(event, '/') }}>Edit</Button></li>
+                    <li className="list-group-item">Understanding: {this.props.reduxStore.understandingReducer} <Button variant="contained" color="secondary" type="submit" onClick={(event) => { this.handleClick(event, '/understanding') }}>Edit</Button></li>
+                    <li className="list-group-item">Support: {this.props.reduxStore.supportReducer}  <Button variant="contained" color="secondary" type="submit" onClick={(event) => { this.handleClick(event, '/support') }}>Edit</Button></li>
+                    <li className="list-group-item">Comments: {this.props.reduxStore.commentsReducer} <Button variant="contained" color="secondary" type="submit" onClick={(event) => { this.handleClick(event, '/comments') }}>Edit</Button></li>
                 </ul>
-                <button onClick={this.handleSubmit}>Submit Feedback</button>
+                <Button variant="contained" color="primary" type="submit" onClick={this.handleSubmit}>Submit Feedback</Button>
             </div>
         )
     }

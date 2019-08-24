@@ -3,17 +3,25 @@
 }
 
 .App-header {
-  background-color: #033076;
-  min-height: 70px;
+  background-color: #00695c;
+  /* min-height: 70px; */
   padding: 20px;
   color: white;
 }
 
-.App-title {
+/* .App-title {
   font-size: 1.5em;
-}
+} */
 
-.App-intro {
+/* .App-intro {
   font-size: large;
+} */
+
+.myInputs {
+  margin-bottom: 10px;
+  width: 100px;
 }
 
+.myLists {
+  padding: 0px;
+}
