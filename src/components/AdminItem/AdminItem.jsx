@@ -1,12 +1,29 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Button } from '@material-ui/core';
-
+import swal from 'sweetalert';
 
 class AdminItem extends Component {
 
     handleDelete = () => {
-        //need to create an "are you sure?"" dialogue
+        swal({
+            title: 'Please confirm',
+            text: 'Are you sure you want to delete?',
+            icon: 'warning',
+            buttons: true,
+            dangerMode: true,
+        }).then((willDelete) => {
+            if(willDelete){
+                this.confirmDelete();
+                swal('Completed',{
+                    icon: "success",
+                })
+            }
+        }
+        )
+    }
+
+    confirmDelete = ()=>{
         axios.delete(`/feedback/${this.props.item.id}`)
             .then((response) => {
                 console.log(response.status);

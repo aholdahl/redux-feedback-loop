@@ -10,6 +10,7 @@ import Comments from '../Comments/Comments.jsx';
 import Review from '../Review/Review.jsx';
 import Confirmation from '../Confirmation/Confirmation.jsx';
 import Admin from '../Admin/Admin.jsx';
+// import swal from 'sweetalert';
 
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import 'typeface-roboto';

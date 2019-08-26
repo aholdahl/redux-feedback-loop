@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from '@material-ui/core';
 
-
 class Understanding extends Component {
     state = { understanding: "" }
 
