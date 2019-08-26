@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Button } from '@material-ui/core';
 import swal from 'sweetalert';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 class AdminItem extends Component {
 
@@ -42,7 +43,7 @@ class AdminItem extends Component {
                 <td>{this.props.item.support}</td>
                 <td>{this.props.item.comments}</td>
                 <td>{this.props.item.date}</td>
-                <td><Button variant="contained" color="secondary" type="submit" onClick={this.handleDelete}>Delete</Button></td>
+                <td><Button variant="contained" color="secondary" type="submit" onClick={this.handleDelete}>Delete <DeleteIcon /></Button></td>
             </tr>
         )
     }
